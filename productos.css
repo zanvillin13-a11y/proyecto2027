@@ -1,0 +1,466 @@
+/* ============================================
+   Impulso Digital — Nuestros productos
+   Reutiliza la paleta y tipografía del sitio
+   (misma base que quienes.css).
+   ============================================ */
+
+:root {
+    --color-tinta: #182539;
+    --color-tinta-suave: #49596e;
+    --color-acero: #3D5A73;
+    --color-ambar: #aca2a2;
+    --color-ambar-oscuro: #cab7a3;
+    --color-crema: #74818f;
+    --color-texto: #22262B;
+    --color-texto-claro: #9797b2;
+
+    --fuente-titulo: "Space Grotesk", sans-serif;
+    --fuente-texto: "Inter", sans-serif;
+
+    --radio: 14px;
+    --ancho-maximo: 1080px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+}
+
+h1, h2 {
+    font-family: var(--fuente-titulo);
+    line-height: 1.15;
+}
+
+/* Salto de contenido (accesibilidad) */
+.salto-contenido {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    padding: 12px 20px;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.salto-contenido:focus {
+    left: 16px;
+    top: 16px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-ambar);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Encabezado (idéntico a quienes.css / style.css)
+   ============================================ */
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 22px 24px;
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.encabezado__marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+
+.encabezado__logo {
+    color: var(--color-ambar);
+}
+
+.nav__lista {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__lista a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__lista a:hover,
+.nav__lista a:focus-visible {
+    border-color: var(--color-ambar);
+    color: var(--color-ambar);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+
+.hero {
+    background: linear-gradient(180deg, var(--color-tinta) 0%, var(--color-tinta-suave) 100%);
+    color: var(--color-texto-claro);
+    padding: 64px 24px 56px;
+}
+
+.hero > * {
+    max-width: var(--ancho-maximo);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__eyebrow {
+    color: var(--color-ambar);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    font-size: 2.5rem;
+    margin: 0 0 12px;
+}
+
+.hero__titulo {
+    font-weight: 700;
+    font-size: clamp(5rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    max-width: 20ch;
+    color: #FDFBF7;
+    margin: 0 0 28px;
+}
+
+.hero__texto p {
+    max-width: 60ch;
+    font-size: 2.2rem;
+    color: rgba(253, 253, 251, 0.82);
+    margin: 0;
+}
+
+/* ============================================
+   Toggle mensual / anual
+   ============================================ */
+
+.planes {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 56px 24px 72px;
+}
+
+.planes__toggle {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    background: rgba(24, 37, 57, 0.08);
+    border-radius: 999px;
+    padding: 4px;
+    width: fit-content;
+    margin: 0 auto 48px;
+}
+
+.planes__opcion {
+    border: none;
+    background: transparent;
+    font-family: var(--fuente-texto);
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--color-texto);
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.planes__opcion.is-activa {
+    background: var(--color-tinta);
+    color: #FDFBF7;
+}
+
+.planes__ahorro {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-ambar-oscuro);
+    background: rgba(24, 37, 57, 0.9);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.planes__opcion.is-activa .planes__ahorro {
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+}
+
+/* ============================================
+   Tarjetas de planes
+   ============================================ */
+
+.planes__lista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.plan {
+    background: #FDFBF7;
+    border: 1px solid rgba(24, 37, 57, 0.12);
+    border-radius: var(--radio);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.plan--destacado {
+    border-color: var(--color-ambar);
+    box-shadow: 0 16px 32px rgba(24, 37, 57, 0.16);
+}
+
+.plan__insignia {
+    position: absolute;
+    top: -13px;
+    left: 24px;
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin: 0;
+}
+
+.plan__nombre {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-tinta);
+    margin: 0 0 8px;
+}
+
+.plan__descripcion {
+    font-size: 1.3rem;
+    color: var(--color-texto);
+    opacity: 0.75;
+    margin: 0 0 20px;
+    min-height: 2.8em;
+}
+
+.plan__precio {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: var(--fuente-titulo);
+    color: var(--color-acero);
+    margin: 0 0 20px;
+}
+
+.plan__moneda {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.plan__monto {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.plan__periodo {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    opacity: 0.6;
+    margin-left: 2px;
+}
+
+.plan__precio--cotizar {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-acero);
+}
+
+.plan__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: var(--color-texto);
+    flex-grow: 1;
+}
+
+.plan__lista li {
+    padding-left: 20px;
+    position: relative;
+}
+
+.plan__lista li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-ambar-oscuro);
+}
+
+.plan__boton {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--color-tinta);
+    color: #FDFBF7;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.plan--destacado .plan__boton {
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+}
+
+.plan__boton:hover,
+.plan__boton:focus-visible {
+    transform: translateY(-2px);
+}
+
+.plan__boton--secundario {
+    background: transparent;
+    border: 1px solid var(--color-tinta);
+    color: var(--color-tinta);
+}
+
+.planes__nota {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-texto);
+    opacity: 0.6;
+    margin: 32px 0 0;
+}
+
+@media (max-width: 980px) {
+    .planes__lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .planes__lista {
+        grid-template-columns: 1fr;
+    }
+    .planes__toggle {
+        width: 100%;
+    }
+    .planes__opcion {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   Llamado a la acción y pie (igual que quienes.css)
+   ============================================ */
+
+.cta {
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    text-align: center;
+    padding: 64px 24px;
+}
+
+.cta__titulo {
+    font-weight: 700;
+    font-size: clamp(3rem, 3vw, 2.1rem);
+    color: #FDFBF7;
+    margin: 0 0 24px;
+}
+
+.cta__boton {
+    display: inline-block;
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta__boton:hover,
+.cta__boton:focus-visible {
+    background: var(--color-ambar-oscuro);
+    transform: translateY(-2px);
+}
+
+.pie {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 32px 24px 48px;
+    background: var(--color-tinta);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pie__marca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--color-texto-claro);
+}
+
+.pie__texto {
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    opacity: 0.7;
+    margin: 0;
+}

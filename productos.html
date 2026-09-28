@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros productos | Impulso Digital</title>
+    <meta name="description" content="Conoce los planes de Impulso Digital para hacer crecer tu marca en internet: estrategia, contenido, publicidad y datos en un solo lugar.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tus estilos propios para esta página -->
+    <link rel="stylesheet" href="productos.css">
+</head>
+<body>
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+        <div class="encabezado__marca">
+            <span class="encabezado__logo" aria-hidden="true">◆</span>
+            <span class="encabezado__nombre">Impulso Digital</span>
+        </div>
+        <nav class="nav" aria-label="Navegación principal">
+            <ul class="nav__lista">
+                <li><a href="index.html">Volver al inicio</a></li>
+                <li><a href="quienes.html">Quiénes somos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido">
+
+        <section class="hero">
+            <p class="hero__eyebrow">Nuestros productos</p>
+            <h1 class="hero__titulo">Planes pensados para cada etapa de tu negocio</h1>
+            <div class="hero__texto">
+                <p>
+                    Cada plan combina estrategia, contenido, publicidad y datos en distintas proporciones, según qué tan grande sea el impulso que necesita tu marca. Elige el que más se acerca a tu momento actual — siempre puedes cambiarte de plan más adelante.
+                </p>
+            </div>
+        </section>
+
+        <section class="planes" aria-label="Planes disponibles">
+
+            <div class="planes__toggle" role="group" aria-label="Elegir frecuencia de pago">
+                <button type="button" class="planes__opcion is-activa" data-frecuencia="mensual">Mensual</button>
+                <button type="button" class="planes__opcion" data-frecuencia="anual">Anual <span class="planes__ahorro">ahorra 2 meses</span></button>
+            </div>
+
+            <div class="planes__lista">
+
+                <article class="plan">
+                    <h2 class="plan__nombre">Plan Arranque</h2>
+                    <p class="plan__descripcion">Para negocios que recién están dando sus primeros pasos en digital.</p>
+                    <p class="plan__precio">
+                        <span class="plan__moneda">S/</span><span class="plan__monto" data-mensual="590" data-anual="490">590</span><span class="plan__periodo">/mes</span>
+                    </p>
+                    <ul class="plan__lista">
+                        <li>Gestión de 2 redes sociales</li>
+                        <li>8 piezas de contenido al mes</li>
+                        <li>Reporte mensual básico</li>
+                    </ul>
+                    <a class="plan__boton" href="index.html#contacto">Elegir este plan</a>
+                </article>
+
+                <article class="plan plan--destacado">
+                    <p class="plan__insignia">Más elegido</p>
+                    <h2 class="plan__nombre">Plan Crecimiento</h2>
+                    <p class="plan__descripcion">Para marcas que ya venden y quieren atraer más clientes de forma constante.</p>
+                    <p class="plan__precio">
+                        <span class="plan__moneda">S/</span><span class="plan__monto" data-mensual="990" data-anual="825">990</span><span class="plan__periodo">/mes</span>
+                    </p>
+                    <ul class="plan__lista">
+                        <li>Gestión de 3 redes sociales</li>
+                        <li>16 piezas de contenido al mes</li>
+                        <li>Publicidad paga (presupuesto de anuncios aparte)</li>
+                        <li>Reporte quincenal</li>
+                    </ul>
+                    <a class="plan__boton" href="index.html#contacto">Elegir este plan</a>
+                </article>
+
+                <article class="plan">
+                    <h2 class="plan__nombre">Plan Impulso Total</h2>
+                    <p class="plan__descripcion">Para marcas listas para escalar en varios canales a la vez.</p>
+                    <p class="plan__precio">
+                        <span class="plan__moneda">S/</span><span class="plan__monto" data-mensual="1690" data-anual="1410">1690</span><span class="plan__periodo">/mes</span>
+                    </p>
+                    <ul class="plan__lista">
+                        <li>Estrategia integral de marca</li>
+                        <li>Redes, publicidad y email marketing</li>
+                        <li>Reporte semanal</li>
+                        <li>Reunión mensual de resultados</li>
+                    </ul>
+                    <a class="plan__boton" href="index.html#contacto">Elegir este plan</a>
+                </article>
+
+                <article class="plan plan--medida">
+                    <h2 class="plan__nombre">Plan a la Medida</h2>
+                    <p class="plan__descripcion">¿Tu negocio necesita algo distinto? Armamos un plan solo para ti.</p>
+                    <p class="plan__precio plan__precio--cotizar">A cotizar</p>
+                    <ul class="plan__lista">
+                        <li>Servicios y alcance definidos contigo</li>
+                        <li>Ideal para campañas puntuales o necesidades específicas</li>
+                    </ul>
+                    <a class="plan__boton plan__boton--secundario" href="index.html#contacto">Conversemos</a>
+                </article>
+
+            </div>
+
+            <p class="planes__nota">*Precios de referencia. Reemplázalos por tus tarifas reales antes de publicar.</p>
+        </section>
+
+        <section class="cta">
+            <h2 class="cta__titulo">¿No sabes cuál plan elegir?</h2>
+            <a class="cta__boton" href="index.html#contacto">Escríbenos y te ayudamos</a>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <div class="pie__marca">
+            <span class="encabezado__logo" aria-hidden="true">◆</span>
+            <span>Impulso Digital</span>
+        </div>
+        <p class="pie__texto">&copy; <span id="anio-actual">2026</span> Hecho por Abel. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Tu script si deseas agregar interactividad -->
+    <script src="productos.js"></script>
+</body>
+</html>

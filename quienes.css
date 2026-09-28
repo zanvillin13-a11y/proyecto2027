@@ -1,0 +1,401 @@
+/* ============================================
+   Impulso Digital — Quiénes somos
+   Paleta y tipografías alineadas con la página
+   principal (style.css): tinta, acero, ámbar, crema.
+   ============================================ */
+
+:root {
+    --color-tinta: #182539;
+    --color-tinta-suave: #49596e;
+    --color-acero: #3D5A73;
+    --color-ambar: #aca2a2;
+    --color-ambar-oscuro: #cab7a3;
+    --color-crema: #74818f;
+    --color-texto: #22262B;
+    --color-texto-claro: #9797b2;
+
+    --fuente-titulo: "Space Grotesk", sans-serif;
+    --fuente-texto: "Inter", sans-serif;
+
+    --radio: 14px;
+    --ancho-maximo: 1080px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    line-height: 1.15;
+}
+
+/* Salto de contenido (accesibilidad) */
+.salto-contenido {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    padding: 12px 20px;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.salto-contenido:focus {
+    left: 16px;
+    top: 16px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-ambar);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Encabezado — mismo tratamiento que index.html:
+   fondo tinta, sticky, acento ámbar en hover.
+   ============================================ */
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 22px 24px;
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.encabezado__marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.encabezado__logo {
+    color: var(--color-ambar);
+}
+
+.nav__lista {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__lista a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__lista a:hover,
+.nav__lista a:focus-visible {
+    border-color: var(--color-ambar);
+    color: var(--color-ambar);
+}
+
+/* ============================================
+   Hero — degradado oscuro tinta → tinta-suave,
+   igual que el hero de la página principal.
+   ============================================ */
+
+.hero {
+    background: linear-gradient(180deg, var(--color-tinta) 0%, var(--color-tinta-suave) 100%);
+    color: var(--color-texto-claro);
+    padding: 64px 24px 72px;
+}
+
+.hero > * {
+    max-width: var(--ancho-maximo);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__eyebrow {
+    color: var(--color-ambar);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    font-size: 4rem;
+    margin: 0 0 12px;
+}
+
+.hero__titulo {
+    font-weight: 700;
+    font-size: clamp(5rem, 2vw, 4rem);
+    line-height: 1.1;
+    max-width: 18ch;
+    color: #FDFBF7;
+    margin: 0 0 32px;
+}
+
+.hero__texto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.hero__texto p {
+    flex: 1 1 320px;
+    max-width: 52ch;
+    font-size: 2rem;
+    color: rgba(253, 253, 251, 0.82);
+    margin: 0;
+}
+
+.hero__texto strong {
+    color: var(--color-ambar-oscuro);
+    font-weight: 700;
+}
+
+/* ============================================
+   Cifras — sobre fondo claro (crema), con acero
+   para los números y línea divisoria en tinta.
+   ============================================ */
+
+.cifras {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(24, 37, 57, 0.15);
+    border-bottom: 1px solid rgba(24, 37, 57, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.cifras__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.cifras__numero {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(3.5rem, 4vw, 2.6rem);
+    color: var(--color-acero);
+    font-weight: 700;
+}
+
+.cifras__etiqueta {
+    font-size: 2rem;
+    color: var(--color-texto);
+    opacity: 0.75;
+}
+
+.cifras__linea {
+    width: 4px;
+    height: 40px;
+    background: rgba(24, 37, 57, 0.2);
+}
+
+@media (max-width: 640px) {
+    .cifras__linea {
+        display: none;
+    }
+}
+
+/* ============================================
+   Pilares — fondo claro, bordes tinta translúcidos.
+   ============================================ */
+
+.pilares {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 72px 24px;
+}
+
+.pilares__titulo {
+    font-weight: 700;
+    font-size: clamp(6rem, 3vw, 2.1rem);
+    color: var(--color-tinta);
+    margin: 0 0 40px;
+    max-width: 20ch;
+}
+
+.pilares__lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(24, 37, 57, 0.15);
+}
+
+.pilar {
+    padding: 28px 28px 28px 0;
+    border-right: 1px solid rgba(24, 37, 57, 0.15);
+}
+
+.pilar:last-child {
+    border-right: none;
+}
+
+.pilar__titulo {
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--color-tinta);
+    margin: 0 0 10px;
+}
+
+.pilar__texto {
+    color: var(--color-texto);
+    opacity: 0.8;
+    font-size: 1.5rem;
+    margin: 0;
+    max-width: 32ch;
+}
+
+@media (max-width: 800px) {
+    .pilares__lista {
+        grid-template-columns: 1fr;
+    }
+    .pilar {
+        padding: 24px 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(24, 37, 57, 0.15);
+    }
+    .pilar:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ============================================
+   Llamado a la acción — fondo tinta, botón ámbar,
+   igual tratamiento que .hero__cta en index.html.
+   ============================================ */
+
+.cta {
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    text-align: center;
+    padding: 72px 24px;
+}
+
+.cta__titulo {
+    font-weight: 700;
+    font-size: clamp(4rem, 3.5vw, 2.3rem);
+    color: #FDFBF7;
+    margin: 0 0 28px;
+}
+
+.cta__boton {
+    display: inline-block;
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta__boton:hover,
+.cta__boton:focus-visible {
+    background: var(--color-ambar-oscuro);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Pie de página — mismo fondo tinta que index.html.
+   ============================================ */
+
+.pie {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 32px 24px 48px;
+    background: var(--color-tinta);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pie__marca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-texto-claro);
+}
+
+.pie__texto {
+    font-size: 1.4rem;
+    color: var(--color-texto-claro);
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* ============================================
+   Animación de aparición (respeta reduced-motion)
+   ============================================ */
+
+.revelar {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revelar.revelar--activo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

@@ -1,0 +1,472 @@
+/* ======================================================
+   # PASO 1: Variables de diseño (tokens)
+   Centralizamos colores y tipografías aquí para que todo
+   el sitio use la misma paleta de forma consistente.
+====================================================== */
+:root {
+    --color-tinta: #182539;       /* fondo oscuro principal */
+    --color-tinta-suave: #49596e; /* variante un poco más clara */
+    --color-acero: #3D5A73;       /* azul secundario */
+    --color-ambar: #aca2a2;       /* acento cálido, para destacar */
+    --color-ambar-oscuro: #cab7a3;
+    --color-crema: #74818f;       /* fondo claro */
+    --color-texto: #22262B;       /* texto sobre fondo claro */
+    --color-texto-claro: #9797b2; /* texto sobre fondo oscuro */
+
+    --fuente-titulo: "Space Grotesk", sans-serif;
+    --fuente-texto: "Inter", sans-serif;
+
+    --radio: 14px;
+    --sombra: 0 12px 28px rgba(160, 176, 200, 0.14);
+}
+
+/* ======================================================
+   # PASO 2: Reset básico
+====================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-texto);
+    background: var(--color-crema);
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    line-height: 1.15;
+}
+
+.divisor {
+    border: none;
+    height: 1px;
+    background: rgba(15, 27, 45, 0.12);
+    margin: 0 6%;
+}
+
+/* ======================================================
+   # PASO 3: Encabezado y navegación
+====================================================== */
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 6%;
+    background: var(--color-tinta);
+    color: var(--color-texto-claro);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.encabezado__marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: 4.5rem;
+}
+
+.encabezado__logo {
+    color: var(--color-ambar);
+}
+
+.nav__lista {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav__lista a {
+    font-size: 2.4rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav__lista a:hover,
+.nav__lista a:focus-visible {
+    border-color: var(--color-ambar);
+    color: var(--color-ambar);
+}
+
+/* Botón hamburguesa: oculto en escritorio, visible solo en móvil (media query abajo) */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.nav__toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-texto-claro);
+    border-radius: 2px;
+}
+
+/* ======================================================
+   # PASO 4: Sección "hero"
+====================================================== */
+.hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 88px 6% 72px;
+    background: linear-gradient(180deg, var(--color-tinta) 0%, var(--color-tinta-suave) 100%);
+    color: var(--color-texto-claro);
+}
+
+.hero__etiqueta {
+    color: var(--color-ambar);
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    margin-bottom: 14px;
+    font-size: 4rem;
+}
+
+.hero__titulo {
+    font-size: clamp(11rem, 2vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 100px;
+    max-width: 15ch;
+}
+
+.hero__resalte {
+    color: var(--color-ambar);
+}
+
+.hero__descripcion {
+    max-width: 46ch;
+    color: rgba(253, 253, 251, 0.82);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.hero__cta {
+    display: inline-block;
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 999px;
+    transition: transform 0.2s ease, background 0.2s ease;
+    font-size: 3rem;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+    background: var(--color-ambar-oscuro);
+    transform: translateY(-2px);
+}
+
+.hero__dato {
+    background: rgba(253, 253, 251, 0.06);
+    border: 1px solid rgba(253, 253, 251, 0.15);
+    border-radius: var(--radio);
+    padding: 36px;
+    text-align: left;
+}
+
+.hero__dato-numero {
+    font-family: var(--fuente-titulo);
+    font-size: 14rem;
+    color: var(--color-ambar);
+}
+
+.hero__dato-texto {
+    color: rgba(253, 253, 251, 0.75);
+    max-width: 20ch;
+    margin-top: 6px;
+    font-size: 1.5rem;
+}
+
+/* ======================================================
+   # PASO 5: Cuadrícula de servicios (padre / hijo / nieto)
+   Usamos CSS Grid para acomodar las 6 tarjetas en 3 columnas
+   en escritorio y menos columnas en pantallas pequeñas.
+====================================================== */
+.padre {
+    padding: 72px 6%;
+}
+
+.padre__titulo {
+    font-size: 4rem;
+    margin-bottom: 80px;
+}
+
+.hijo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.nieto {
+    background: #89888b;
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.25s ease;
+}
+
+.nieto:hover {
+    transform: translateY(-6px);
+}
+
+.nieto__imagen-cont {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    cursor: zoom-in; /* indica que la imagen se puede ampliar (ver script.js) */
+}
+
+.nieto__imagen-cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.nieto:hover .nieto__imagen-cont img {
+    transform: scale(1.06);
+}
+
+.nieto h3 {
+    font-size: 2.7rem;
+    margin: 18px 20px 8px;
+}
+
+.nieto p {
+    font-size: 1.9rem;
+    color: #1b2027;
+    margin: 0 20px 22px;
+}
+
+/* ======================================================
+   # PASO 6: Franja de sucursales, redes y contacto
+====================================================== */
+.franja {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    gap: 40px;
+    background: var(--color-acero);
+    color: var(--color-texto-claro);
+    padding: 64px 6%;
+}
+
+.franja h2 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+}
+
+.franja__lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: rgba(253, 253, 251, 0.85);
+}
+
+.franja__lista a:hover {
+    color: var(--color-ambar);
+}
+
+/* ======================================================
+   # PASO 7: Formulario de contacto
+====================================================== */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formulario label {
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.formulario input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    font-family: var(--fuente-texto);
+}
+
+.formulario button {
+    margin-top: 16px;
+    background: var(--color-ambar);
+    color: var(--color-tinta);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.formulario button:hover {
+    background: var(--color-ambar-oscuro);
+}
+
+.formulario__mensaje {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+.formulario__mensaje.exito {
+    color: #8FE3A0;
+}
+
+.formulario__mensaje.error {
+    color: #F29C9C;
+}
+
+/* ======================================================
+   # PASO 8: Pie de página
+====================================================== */
+.pie {
+    text-align: center;
+    padding: 40px;
+    background: var(--color-tinta);
+    color: rgba(203, 203, 181, 0.7);
+    font-size: 1.2rem;
+}z
+
+/* ======================================================
+   # PASO 9: Modal para ampliar imágenes (controlado por JS)
+====================================================== */
+.modal {
+    display: none; /* JS cambia esto a "flex" al abrir */
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 27, 45, 0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 5%;
+}
+
+.modal.abierto {
+    display: flex;
+}
+
+.modal img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+}
+
+.modal__cerrar {
+    position: absolute;
+    top: 24px;
+    right: 5%;
+    background: none;
+    border: none;
+    color: var(--color-texto-claro);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* ======================================================
+   # PASO 10: Responsivo — tablets
+====================================================== */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hijo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .franja {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ======================================================
+   # PASO 11: Responsivo — móvil
+   El menú se convierte en panel desplegable controlado
+   por la clase .nav--abierto que agrega script.js
+====================================================== */
+@media (max-width: 640px) {
+    .nav__toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-tinta);
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav.nav--abierto {
+        max-height: 320px;
+    }
+
+    .nav__lista {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 6% 20px;
+    }
+
+    .nav__lista li {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(253, 253, 251, 0.1);
+    }
+
+    .hijo {
+        grid-template-columns: 1fr;
+    }
+
+    .franja {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ======================================================
+   # PASO 12: Accesibilidad — foco visible y menos movimiento
+====================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-ambar);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

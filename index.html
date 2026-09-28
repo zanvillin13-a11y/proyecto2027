@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital | Agencia</title>
+
+    <!-- # PASO 1: Tipografías desde Google Fonts (Space Grotesk para títulos, Inter para texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- # PASO 2: Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+
+    <!-- # PASO 3: Encabezado con marca y navegación principal -->
+    <header class="encabezado">
+        <div class="encabezado__marca">
+            <span class="encabezado__logo">◆</span>
+            <span class="encabezado__nombre">Impulso Digital</span>
+        </div>
+
+        <!-- Botón hamburguesa: solo se ve en pantallas pequeñas (ver style.css y script.js) -->
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav" id="nav">
+            <ul class="nav__lista">
+                <li><a href="quienes.html">¿Quiénes somos?</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScEbw5QMlx5YYV4o9EGPX9kHj4IWLyQ_K2mrqt9nhIFUEJEZA/viewform">Contáctenos</a></li>
+                <li><a href="productos.html">Nuestros productos</a></li>
+                <li><a href="#sucursales">Sucursales</a></li>
+                <li><a href="#redes">Redes sociales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- # PASO 4: Sección "hero" — lo primero que ve la persona al entrar -->
+    <section class="hero" id="quienes-somos">
+        <div class="hero__texto">
+            <p class="hero__etiqueta">Agencia de marketing digital</p>
+            <h1 class="hero__titulo">Hacemos que tu marca <span class="hero__resalte">se encuentre</span></h1>
+            <p class="hero__descripcion">
+                Diseñamos estrategias de contenido, publicidad y analítica para negocios que
+                quieren crecer en internet sin perder su identidad.
+            </p>
+            <a href="#productos" class="hero__cta">Ver nuestros servicios</a>
+        </div>
+
+        <!-- Panel con datos destacados (no es una secuencia, así que no lleva numeración 01/02/03) -->
+        <div class="hero__dato">
+            <p class="hero__dato-numero">+120</p>
+            <p class="hero__dato-texto">marcas acompañadas desde 2019</p>
+        </div>
+    </section>
+
+    <hr class="divisor">
+
+    <!-- # PASO 5: Estructura padre → hijo → nieto (se conserva del documento original) -->
+    <main class="padre" id="productos">
+        <h2 class="padre__titulo">Nuestros servicios</h2>
+
+        <div class="hijo">
+
+            <!-- # PASO 6: Cada .nieto es una tarjeta de servicio con imagen, título y texto -->
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/seo-posicionamiento.png" alt="Ilustración del servicio de posicionamiento SEO" loading="lazy">
+                </div>
+                <h3>SEO y posicionamiento</h3>
+                <p>Optimizamos tu sitio para que aparezca primero cuando tus clientes te buscan en Google.</p>
+            </article>
+
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/redes-sociales.png" alt="Ilustración del servicio de redes sociales" loading="lazy">
+                </div>
+                <h3>Redes sociales</h3>
+                <p>Planeamos y publicamos contenido que conecta con tu comunidad todos los días.</p>
+            </article>
+
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/branding.png" alt="Ilustración del servicio de branding" loading="lazy">
+                </div>
+                <h3>Branding</h3>
+                <p>Construimos una identidad visual coherente, desde el logo hasta el tono de voz.</p>
+            </article>
+
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/xdd.png" alt="Ilustración del servicio de publicidad digital" loading="lazy">
+                </div>
+                <h3>Publicidad digital</h3>
+                <p>Campañas pagadas en buscadores y redes sociales, medidas desde el primer clic.</p>
+            </article>
+
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/analitica-de-datos.png" alt="Ilustración del servicio de analítica de datos" loading="lazy">
+                </div>
+                <h3>Analítica de datos</h3>
+                <p>Convertimos las visitas y los clics en decisiones claras para tu negocio.</p>
+            </article>
+
+            <article class="nieto">
+                <div class="nieto__imagen-cont">
+                    <img src="principal/email-marketing.png" alt="Ilustración del servicio de email marketing" loading="lazy">
+                </div>
+                <h3>Email marketing</h3>
+                <p>Correos que la gente sí abre, con mensajes pensados para cada etapa del cliente.</p>
+            </article>
+
+        </div>
+    </main>
+
+    <hr class="divisor">
+
+    <!-- # PASO 7: Sucursales y redes sociales -->
+    <section class="franja" id="sucursales">
+        <div class="franja__bloque">
+            <h2>Sucursales</h2>
+            <ul class="franja__lista">
+                <li>Lima — Av. Larco 345, Miraflores</li>
+                <li>Arequipa — Calle Mercaderes 210</li>
+                <li>Trujillo — Jr. Pizarro 88</li>
+            </ul>
+        </div>
+
+        <div class="franja__bloque" id="redes">
+            <h2>Redes sociales</h2>
+            <ul class="franja__lista">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+
+        <!-- # PASO 8: Formulario de contacto controlado por JavaScript (ver script.js) -->
+        <div class="franja__bloque" id="contacto">
+            <h2>Contáctenos</h2>
+            <form class="formulario" id="formularioContacto" novalidate>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+
+                <button type="submit">Enviar mensaje</button>
+
+                <!-- Aquí el JS escribe la confirmación o el error, en vez de usar alert() -->
+                <p class="formulario__mensaje" id="formularioMensaje" role="status"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- # PASO 9: Pie de página con año calculado automáticamente por JS -->
+    <footer class="pie">
+        <p>© <span id="anioActual"></span> Hecho por Abel — Derechos Reservados</p>
+    </footer>
+
+    <!-- # PASO 10: Ventana modal para ver la imagen en grande al hacer clic (ver script.js) -->
+    <div class="modal" id="modalImagen">
+        <button class="modal__cerrar" id="modalCerrar" aria-label="Cerrar imagen">&times;</button>
+        <img src="" alt="" id="modalImagenGrande">
+    </div>
+
+    <!-- # PASO 11: Script al final del body para que el HTML cargue primero -->
+    <script src="1.js"></script>
+</body>
+
+</html>
