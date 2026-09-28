@@ -46,6 +46,7 @@ body {
     font-family: var(--fuente-texto);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* <-- Previene la línea gris y desbordamientos laterales */
 }
 
 img {
@@ -86,8 +87,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Encabezado — mismo tratamiento que index.html:
-   fondo tinta, sticky, acento ámbar en hover.
+   Encabezado
    ============================================ */
 
 .encabezado {
@@ -102,6 +102,7 @@ button:focus-visible {
     position: sticky;
     top: 0;
     z-index: 10;
+    width: 100%;
 }
 
 .encabezado__marca {
@@ -110,7 +111,7 @@ button:focus-visible {
     gap: 10px;
     font-family: var(--fuente-titulo);
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 1.5rem; /* <-- Ajustado de 2.5rem */
 }
 
 .encabezado__logo {
@@ -128,7 +129,7 @@ button:focus-visible {
 .nav__lista a {
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1rem; /* <-- Ajustado de 1.6rem */
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     transition: border-color 0.2s ease, color 0.2s ease;
@@ -141,8 +142,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Hero — degradado oscuro tinta → tinta-suave,
-   igual que el hero de la página principal.
+   Hero
    ============================================ */
 
 .hero {
@@ -161,13 +161,13 @@ button:focus-visible {
     color: var(--color-ambar);
     font-weight: 600;
     letter-spacing: 0.4px;
-    font-size: 4rem;
+    font-size: 1.1rem; /* <-- Ajustado de 4rem */
     margin: 0 0 12px;
 }
 
 .hero__titulo {
     font-weight: 700;
-    font-size: clamp(5rem, 2vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3.2rem); /* <-- Corregido el clamp que estaba invertido */
     line-height: 1.1;
     max-width: 18ch;
     color: #FDFBF7;
@@ -183,7 +183,7 @@ button:focus-visible {
 .hero__texto p {
     flex: 1 1 320px;
     max-width: 52ch;
-    font-size: 2rem;
+    font-size: 1.1rem; /* <-- Ajustado de 2rem */
     color: rgba(253, 253, 251, 0.82);
     margin: 0;
 }
@@ -194,8 +194,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Cifras — sobre fondo claro (crema), con acero
-   para los números y línea divisoria en tinta.
+   Cifras
    ============================================ */
 
 .cifras {
@@ -221,13 +220,13 @@ button:focus-visible {
 
 .cifras__numero {
     font-family: var(--fuente-titulo);
-    font-size: clamp(3.5rem, 4vw, 2.6rem);
+    font-size: clamp(2.2rem, 4vw, 3rem); /* <-- Corregido el clamp invertido */
     color: var(--color-acero);
     font-weight: 700;
 }
 
 .cifras__etiqueta {
-    font-size: 2rem;
+    font-size: 1rem; /* <-- Ajustado de 2rem */
     color: var(--color-texto);
     opacity: 0.75;
 }
@@ -245,7 +244,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Pilares — fondo claro, bordes tinta translúcidos.
+   Pilares
    ============================================ */
 
 .pilares {
@@ -256,7 +255,7 @@ button:focus-visible {
 
 .pilares__titulo {
     font-weight: 700;
-    font-size: clamp(6rem, 3vw, 2.1rem);
+    font-size: clamp(1.8rem, 3vw, 2.3rem); /* <-- Ajustado de 6rem */
     color: var(--color-tinta);
     margin: 0 0 40px;
     max-width: 20ch;
@@ -281,7 +280,7 @@ button:focus-visible {
 .pilar__titulo {
     font-family: var(--fuente-titulo);
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 1.3rem; /* <-- Ajustado de 3rem */
     color: var(--color-tinta);
     margin: 0 0 10px;
 }
@@ -289,7 +288,7 @@ button:focus-visible {
 .pilar__texto {
     color: var(--color-texto);
     opacity: 0.8;
-    font-size: 1.5rem;
+    font-size: 0.95rem; /* <-- Ajustado de 1.5rem */
     margin: 0;
     max-width: 32ch;
 }
@@ -309,8 +308,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Llamado a la acción — fondo tinta, botón ámbar,
-   igual tratamiento que .hero__cta en index.html.
+   Llamado a la acción
    ============================================ */
 
 .cta {
@@ -322,7 +320,7 @@ button:focus-visible {
 
 .cta__titulo {
     font-weight: 700;
-    font-size: clamp(4rem, 3.5vw, 2.3rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.3rem); /* <-- Ajustado de 4rem */
     color: #FDFBF7;
     margin: 0 0 28px;
 }
@@ -345,7 +343,7 @@ button:focus-visible {
 }
 
 /* ============================================
-   Pie de página — mismo fondo tinta que index.html.
+   Pie de página
    ============================================ */
 
 .pie {
@@ -366,19 +364,19 @@ button:focus-visible {
     gap: 8px;
     font-family: var(--fuente-titulo);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-texto-claro);
 }
 
 .pie__texto {
-    font-size: 1.4rem;
+    font-size: 0.9rem; /* <-- Ajustado de 1.4rem */
     color: var(--color-texto-claro);
     opacity: 0.7;
     margin: 0;
 }
 
 /* ============================================
-   Animación de aparición (respeta reduced-motion)
+   Animación de aparición
    ============================================ */
 
 .revelar {
