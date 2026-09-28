@@ -1,17 +1,15 @@
 /* ======================================================
    # PASO 1: Variables de diseño (tokens)
-   Centralizamos colores y tipografías aquí para que todo
-   el sitio use la misma paleta de forma consistente.
 ====================================================== */
 :root {
-    --color-tinta: #182539;       /* fondo oscuro principal */
+    --color-tinta: #182539;        /* fondo oscuro principal */
     --color-tinta-suave: #49596e; /* variante un poco más clara */
-    --color-acero: #3D5A73;       /* azul secundario */
-    --color-ambar: #aca2a2;       /* acento cálido, para destacar */
+    --color-acero: #3D5A73;        /* azul secundario */
+    --color-ambar: #aca2a2;        /* acento cálido, para destacar */
     --color-ambar-oscuro: #cab7a3;
-    --color-crema: #74818f;       /* fondo claro */
-    --color-texto: #22262B;       /* texto sobre fondo claro */
-    --color-texto-claro: #9797b2; /* texto sobre fondo oscuro */
+    --color-crema: #74818f;        /* fondo claro */
+    --color-texto: #22262B;        /* texto sobre fondo claro */
+    --color-texto-claro: #9797b2;  /* texto sobre fondo oscuro */
 
     --fuente-titulo: "Space Grotesk", sans-serif;
     --fuente-texto: "Inter", sans-serif;
@@ -39,6 +37,7 @@ body {
     background: var(--color-crema);
     line-height: 1.6;
     font-size: 20px;
+    overflow-x: hidden; /* <-- Solución para evitar desbordamientos laterales */
 }
 
 img {
@@ -76,6 +75,7 @@ h1, h2, h3 {
     position: sticky;
     top: 0;
     z-index: 10;
+    width: 100%;
 }
 
 .encabezado__marca {
@@ -110,7 +110,6 @@ h1, h2, h3 {
     color: var(--color-ambar);
 }
 
-/* Botón hamburguesa: oculto en escritorio, visible solo en móvil (media query abajo) */
 .nav__toggle {
     display: none;
     flex-direction: column;
@@ -150,9 +149,9 @@ h1, h2, h3 {
 }
 
 .hero__titulo {
-    font-size: clamp(11rem, 2vw, 5rem);
+    font-size: clamp(3rem, 5vw, 5rem); /* <-- Ajustado para evitar ruptura en móviles */
     font-weight: 700;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     max-width: 15ch;
 }
 
@@ -194,7 +193,7 @@ h1, h2, h3 {
 
 .hero__dato-numero {
     font-family: var(--fuente-titulo);
-    font-size: 14rem;
+    font-size: 8rem; /* <-- Ajustado de 14rem para prevenir desbordamientos masivos */
     color: var(--color-ambar);
 }
 
@@ -206,9 +205,7 @@ h1, h2, h3 {
 }
 
 /* ======================================================
-   # PASO 5: Cuadrícula de servicios (padre / hijo / nieto)
-   Usamos CSS Grid para acomodar las 6 tarjetas en 3 columnas
-   en escritorio y menos columnas en pantallas pequeñas.
+   # PASO 5: Cuadrícula de servicios
 ====================================================== */
 .padre {
     padding: 72px 6%;
@@ -240,7 +237,7 @@ h1, h2, h3 {
 .nieto__imagen-cont {
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    cursor: zoom-in; /* indica que la imagen se puede ampliar (ver script.js) */
+    cursor: zoom-in;
 }
 
 .nieto__imagen-cont img {
@@ -354,13 +351,13 @@ h1, h2, h3 {
     background: var(--color-tinta);
     color: rgba(203, 203, 181, 0.7);
     font-size: 1.2rem;
-}z
+}
 
 /* ======================================================
-   # PASO 9: Modal para ampliar imágenes (controlado por JS)
+   # PASO 9: Modal para ampliar imágenes
 ====================================================== */
 .modal {
-    display: none; /* JS cambia esto a "flex" al abrir */
+    display: none;
     position: fixed;
     inset: 0;
     background: rgba(15, 27, 45, 0.9);
@@ -411,8 +408,6 @@ h1, h2, h3 {
 
 /* ======================================================
    # PASO 11: Responsivo — móvil
-   El menú se convierte en panel desplegable controlado
-   por la clase .nav--abierto que agrega script.js
 ====================================================== */
 @media (max-width: 640px) {
     .nav__toggle {
@@ -423,7 +418,7 @@ h1, h2, h3 {
         position: absolute;
         top: 100%;
         left: 0;
-        right: 0;
+        width: 100%; /* Asegura que cubra exactamente el ancho completo de la pantalla */
         background: var(--color-tinta);
         overflow: hidden;
         max-height: 0;
@@ -455,7 +450,7 @@ h1, h2, h3 {
 }
 
 /* ======================================================
-   # PASO 12: Accesibilidad — foco visible y menos movimiento
+   # PASO 12: Accesibilidad
 ====================================================== */
 a:focus-visible,
 button:focus-visible,
