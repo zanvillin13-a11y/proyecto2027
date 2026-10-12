@@ -2,20 +2,24 @@
    # PASO 1: Variables de diseño (tokens)
 ====================================================== */
 :root {
-    --color-tinta: #182539;        /* fondo oscuro principal */
-    --color-tinta-suave: #49596e; /* variante un poco más clara */
-    --color-acero: #3D5A73;        /* azul secundario */
-    --color-ambar: #aca2a2;        /* acento cálido, para destacar */
-    --color-ambar-oscuro: #cab7a3;
-    --color-crema: #74818f;        /* fondo claro */
-    --color-texto: #22262B;        /* texto sobre fondo claro */
-    --color-texto-claro: #9797b2;  /* texto sobre fondo oscuro */
+    --color-tinta: #14213a;
+    --color-tinta-suave: #22365a;
+    --color-acero: #2b4260;
+    --color-ambar: #f2b45a;
+    --color-ambar-oscuro: #e09a35;
+    --color-crema: #f5f2ec;
+    --color-tarjeta: #ffffff;
+    --color-texto: #1f2733;
+    --color-texto-suave: #4b5563;
+    --color-texto-claro: #dbe2f0;
 
-    --fuente-titulo: "Space Grotesk", sans-serif;
-    --fuente-texto: "Inter", sans-serif;
+    --fuente-titulo: "Space Grotesk", system-ui, sans-serif;
+    --fuente-texto: "Inter", system-ui, sans-serif;
 
-    --radio: 14px;
-    --sombra: 0 12px 28px rgba(160, 176, 200, 0.14);
+    --radio: 16px;
+    --sombra: 0 10px 28px rgba(20, 33, 58, 0.12);
+    --ancho-max: 1180px;
+    --margen: clamp(20px, 5vw, 48px);
 }
 
 /* ======================================================
@@ -29,15 +33,16 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
     font-family: var(--fuente-texto);
     color: var(--color-texto);
     background: var(--color-crema);
-    line-height: 1.6;
-    font-size: 20px;
-    overflow-x: hidden; /* <-- Solución para evitar desbordamientos laterales */
+    line-height: 1.65;
+    font-size: 1rem;
+    overflow-x: hidden;
 }
 
 img {
@@ -58,8 +63,8 @@ h1, h2, h3 {
 .divisor {
     border: none;
     height: 1px;
-    background: rgba(15, 27, 45, 0.12);
-    margin: 0 6%;
+    background: rgba(20, 33, 58, 0.12);
+    margin: 0 var(--margen);
 }
 
 /* ======================================================
@@ -69,7 +74,8 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 6%;
+    gap: 20px;
+    padding: 16px var(--margen);
     background: var(--color-tinta);
     color: var(--color-texto-claro);
     position: sticky;
@@ -84,7 +90,8 @@ h1, h2, h3 {
     gap: 10px;
     font-family: var(--fuente-titulo);
     font-weight: 700;
-    font-size: 4.5rem;
+    font-size: 1.4rem;
+    color: #fff;
 }
 
 .encabezado__logo {
@@ -93,13 +100,14 @@ h1, h2, h3 {
 
 .nav__lista {
     display: flex;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
 }
 
 .nav__lista a {
-    font-size: 2.4rem;
-    padding-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 6px;
     border-bottom: 2px solid transparent;
     transition: border-color 0.2s ease, color 0.2s ease;
 }
@@ -117,13 +125,13 @@ h1, h2, h3 {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 6px;
+    padding: 10px;
 }
 
 .nav__toggle span {
     width: 24px;
     height: 2px;
-    background: var(--color-texto-claro);
+    background: #fff;
     border-radius: 2px;
 }
 
@@ -133,9 +141,9 @@ h1, h2, h3 {
 .hero {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: 48px;
+    gap: clamp(28px, 5vw, 64px);
     align-items: center;
-    padding: 88px 6% 72px;
+    padding: clamp(48px, 9vw, 96px) var(--margen);
     background: linear-gradient(180deg, var(--color-tinta) 0%, var(--color-tinta-suave) 100%);
     color: var(--color-texto-claro);
 }
@@ -143,16 +151,18 @@ h1, h2, h3 {
 .hero__etiqueta {
     color: var(--color-ambar);
     font-weight: 600;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     margin-bottom: 14px;
-    font-size: 4rem;
+    font-size: 0.8rem;
 }
 
 .hero__titulo {
-    font-size: clamp(3rem, 5vw, 5rem); /* <-- Ajustado para evitar ruptura en móviles */
+    font-size: clamp(2.1rem, 5vw, 3.8rem);
     font-weight: 700;
-    margin-bottom: 40px;
-    max-width: 15ch;
+    color: #fff;
+    margin-bottom: 20px;
+    max-width: 16ch;
 }
 
 .hero__resalte {
@@ -160,10 +170,10 @@ h1, h2, h3 {
 }
 
 .hero__descripcion {
-    max-width: 46ch;
-    color: rgba(253, 253, 251, 0.82);
-    margin-bottom: 30px;
-    font-size: 2rem;
+    max-width: 52ch;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 28px;
+    font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
 .hero__cta {
@@ -171,10 +181,10 @@ h1, h2, h3 {
     background: var(--color-ambar);
     color: var(--color-tinta);
     font-weight: 600;
-    padding: 14px 26px;
+    padding: 14px 28px;
     border-radius: 999px;
+    font-size: 1rem;
     transition: transform 0.2s ease, background 0.2s ease;
-    font-size: 3rem;
 }
 
 .hero__cta:hover,
@@ -184,50 +194,55 @@ h1, h2, h3 {
 }
 
 .hero__dato {
-    background: rgba(253, 253, 251, 0.06);
-    border: 1px solid rgba(253, 253, 251, 0.15);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radio);
-    padding: 36px;
-    text-align: left;
+    padding: clamp(24px, 4vw, 40px);
 }
 
 .hero__dato-numero {
     font-family: var(--fuente-titulo);
-    font-size: 8rem; /* <-- Ajustado de 14rem para prevenir desbordamientos masivos */
+    font-size: clamp(3.2rem, 8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
     color: var(--color-ambar);
 }
 
 .hero__dato-texto {
-    color: rgba(253, 253, 251, 0.75);
-    max-width: 20ch;
-    margin-top: 6px;
-    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 24ch;
+    margin-top: 10px;
+    font-size: 1.05rem;
 }
 
 /* ======================================================
    # PASO 5: Cuadrícula de servicios
 ====================================================== */
 .padre {
-    padding: 72px 6%;
+    max-width: calc(var(--ancho-max) + 2 * var(--margen));
+    margin: 0 auto;
+    padding: clamp(48px, 8vw, 88px) var(--margen);
 }
 
 .padre__titulo {
-    font-size: 4rem;
-    margin-bottom: 80px;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--color-tinta);
+    margin-bottom: clamp(28px, 5vw, 48px);
 }
 
 .hijo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: clamp(18px, 2.5vw, 28px);
 }
 
 .nieto {
-    background: #89888b;
+    background: var(--color-tarjeta);
     border-radius: var(--radio);
     overflow: hidden;
     box-shadow: var(--sombra);
     transition: transform 0.25s ease;
+    padding-bottom: 8px;
 }
 
 .nieto:hover {
@@ -238,6 +253,7 @@ h1, h2, h3 {
     aspect-ratio: 4 / 3;
     overflow: hidden;
     cursor: zoom-in;
+    background: #e8ecf3;
 }
 
 .nieto__imagen-cont img {
@@ -252,14 +268,15 @@ h1, h2, h3 {
 }
 
 .nieto h3 {
-    font-size: 2.7rem;
-    margin: 18px 20px 8px;
+    font-size: 1.3rem;
+    color: var(--color-tinta);
+    margin: 18px 22px 8px;
 }
 
 .nieto p {
-    font-size: 1.9rem;
-    color: #1b2027;
-    margin: 0 20px 22px;
+    font-size: 0.97rem;
+    color: var(--color-texto-suave);
+    margin: 0 22px 18px;
 }
 
 /* ======================================================
@@ -268,15 +285,16 @@ h1, h2, h3 {
 .franja {
     display: grid;
     grid-template-columns: 1fr 1fr 1.3fr;
-    gap: 40px;
+    gap: clamp(28px, 4vw, 48px);
     background: var(--color-acero);
     color: var(--color-texto-claro);
-    padding: 64px 6%;
+    padding: clamp(40px, 6vw, 64px) var(--margen);
 }
 
 .franja h2 {
     font-size: 1.25rem;
-    margin-bottom: 18px;
+    color: #fff;
+    margin-bottom: 16px;
 }
 
 .franja__lista {
@@ -284,7 +302,8 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: rgba(253, 253, 251, 0.85);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.97rem;
 }
 
 .franja__lista a:hover {
@@ -301,15 +320,17 @@ h1, h2, h3 {
 }
 
 .formulario label {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     margin-top: 8px;
 }
 
 .formulario input {
-    padding: 10px 12px;
+    padding: 12px;
     border-radius: 8px;
     border: none;
     font-family: var(--fuente-texto);
+    font-size: 1rem; /* 16px evita el zoom automático en iPhone */
+    width: 100%;
 }
 
 .formulario button {
@@ -317,9 +338,10 @@ h1, h2, h3 {
     background: var(--color-ambar);
     color: var(--color-tinta);
     border: none;
-    padding: 12px;
+    padding: 13px;
     border-radius: 8px;
     font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s ease;
 }
@@ -335,11 +357,11 @@ h1, h2, h3 {
 }
 
 .formulario__mensaje.exito {
-    color: #8FE3A0;
+    color: #9be8ab;
 }
 
 .formulario__mensaje.error {
-    color: #F29C9C;
+    color: #ffb4b4;
 }
 
 /* ======================================================
@@ -347,10 +369,10 @@ h1, h2, h3 {
 ====================================================== */
 .pie {
     text-align: center;
-    padding: 40px;
+    padding: 28px var(--margen);
     background: var(--color-tinta);
-    color: rgba(203, 203, 181, 0.7);
-    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
 }
 
 /* ======================================================
@@ -360,7 +382,7 @@ h1, h2, h3 {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(15, 27, 45, 0.9);
+    background: rgba(10, 18, 34, 0.92);
     align-items: center;
     justify-content: center;
     z-index: 100;
@@ -379,20 +401,58 @@ h1, h2, h3 {
 
 .modal__cerrar {
     position: absolute;
-    top: 24px;
+    top: 16px;
     right: 5%;
     background: none;
     border: none;
-    color: var(--color-texto-claro);
-    font-size: 2rem;
+    color: #fff;
+    font-size: 2.2rem;
     cursor: pointer;
     line-height: 1;
 }
 
 /* ======================================================
-   # PASO 10: Responsivo — tablets
+   # PASO 10: Responsivo — tablets (menú hamburguesa desde aquí)
 ====================================================== */
 @media (max-width: 900px) {
+    .nav__toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--color-tinta);
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+        border-top: 1px solid transparent;
+    }
+
+    .nav.nav--abierto {
+        max-height: 420px;
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav__lista {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px var(--margen) 20px;
+    }
+
+    .nav__lista li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav__lista a {
+        display: block;
+        padding: 14px 0;
+        border-bottom: none;
+        font-size: 1rem;
+    }
+
     .hero {
         grid-template-columns: 1fr;
     }
@@ -404,40 +464,23 @@ h1, h2, h3 {
     .franja {
         grid-template-columns: 1fr 1fr;
     }
+
+    .franja__bloque:last-child {
+        grid-column: 1 / -1;
+    }
 }
 
 /* ======================================================
    # PASO 11: Responsivo — móvil
 ====================================================== */
 @media (max-width: 640px) {
-    .nav__toggle {
-        display: flex;
+    .encabezado__marca {
+        font-size: 1.2rem;
     }
 
-    .nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%; /* Asegura que cubra exactamente el ancho completo de la pantalla */
-        background: var(--color-tinta);
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav.nav--abierto {
-        max-height: 320px;
-    }
-
-    .nav__lista {
-        flex-direction: column;
-        gap: 0;
-        padding: 8px 6% 20px;
-    }
-
-    .nav__lista li {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(253, 253, 251, 0.1);
+    .hero__cta {
+        display: block;
+        text-align: center;
     }
 
     .hijo {
